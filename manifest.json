@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+
+  "name": "Co-ordinates Data",
+  "description": "This extension allows the user to store X,Y Co-ordinates and id of the position clicked in the browser in a database",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+
+  "background": {
+      "scripts": ["listener.js","listener2.js"]
+    },
+    
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
