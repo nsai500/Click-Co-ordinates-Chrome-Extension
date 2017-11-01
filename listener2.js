@@ -41,7 +41,7 @@ function changeColor(newColor) {
   arrayList.push(stuff);
   console.log(JSON.stringify(arrayList));
   count++;
-  if(count%3 == 0) download(JSON.stringify(arrayList), 'test.txt', 'text/plain');
+  if(count%40 == 0) download(JSON.stringify(arrayList), 'test.txt', 'text/plain');
 }
 
 /*chrome.tabs.onHighlighted.addListener(function storee(tabId) {
@@ -97,7 +97,6 @@ function download(text, name, type) {
 /*chrome.storage.sync.set({ stor : name }, function() {
   alert('Successful Save!');
 });*/
-
 function getClickPosition(e) {
     xPosition = e.clientX;
     yPosition = e.clientY;

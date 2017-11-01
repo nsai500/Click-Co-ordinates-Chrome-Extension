@@ -1,12 +1,12 @@
 var arrayWithElements = new Array();
-var count = 0;
+var count2 = 0;
 function clickListener(e) 
 {   
     var clickedElement=(window.event)
                         ? window.event.srcElement
                         : e.target,
         tags=document.getElementsByTagName(clickedElement.tagName);
-        count++;
+        count2++;
     for(var i=0;i<tags.length;++i)
     {
       if(tags[i]==clickedElement)
@@ -15,7 +15,7 @@ function clickListener(e)
         console.log(arrayWithElements);
       }    
     }
-    if(count%50 == 0) download(JSON.stringify(arrayWithElements), 'test1.txt', 'text/plain');
+    if(count2%25 == 0) download(JSON.stringify(arrayWithElements), 'test1.txt', 'text/plain');
 }
   
 document.onclick = clickListener;
