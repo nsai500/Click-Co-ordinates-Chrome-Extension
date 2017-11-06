@@ -1,4 +1,5 @@
 document.addEventListener("click",getClickPosition, false);
+document.onclick = clickListener;
 
 var xPosition;
 var yPosition;
@@ -23,6 +24,8 @@ var Xx,Yy,Idd;
 var arrayList = [];
 
 var count = 0;
+var count2 = 0;
+var arrayWithElements = new Array();
 
 function clicks2(xx, yy, idd) {
     this.Xx = xx;
@@ -30,11 +33,29 @@ function clicks2(xx, yy, idd) {
     this.Idd = idd;
 }
 
+function clickListener(e) 
+{   
+    var clickedElement=(window.event)
+                        ? window.event.srcElement
+                        : e.target,
+        tags=document.getElementsByTagName(clickedElement.tagName);
+        count2++;
+    for(var i=0;i<tags.length;++i)
+    {
+      if(tags[i]==clickedElement)
+      {
+        arrayWithElements.push({xPosition,yPosition,tag:clickedElement.tagName,index:i}); 
+        console.log(arrayWithElements);
+      }    
+    }
+    if(count2%40 == 0) download(JSON.stringify(arrayWithElements), 'test1.txt', 'text/plain');
+}
+
 function changeColor(newColor) {
   elem = document.elementFromPoint(xPosition, yPosition);
   elem.style.color = newColor;
   name = elem.id;
-  console.log(name);
+  console.log("ID:"+name);
   //storeJson(xPosition,yPosition,name);
   //console.log(xy);
   var stuff = new clicks2(xPosition,yPosition,name);
